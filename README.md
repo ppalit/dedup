@@ -4,7 +4,9 @@
 
 clone or download the project.
 To build and run with Maven:
+
 mvn clean install
+
 jar is created in /target folder of the project and then run:
 ```
 java -jar dedup-0.0.1-SNAPSHOT.jar 
