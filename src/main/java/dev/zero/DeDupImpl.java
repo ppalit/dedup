@@ -23,17 +23,16 @@ public class DeDupImpl implements DeDup{
 
 	
 	public int[] deDupBySort(int[] randomIntegers) {
-		int[] copiedArray= Arrays.copyOf(randomIntegers, randomIntegers.length);
-		Arrays.sort(copiedArray);
+		Arrays.sort(randomIntegers);
 		int counter = 0;
-		copiedArray[counter] = copiedArray[0];
-		for (int i = 0; i < copiedArray.length; i++) {
-			if (copiedArray[counter] != copiedArray[i]) {
+		randomIntegers[counter] = randomIntegers[0];
+		for (int i = 0; i < randomIntegers.length; i++) {
+			if (randomIntegers[counter] != randomIntegers[i]) {
 				counter++;
-				copiedArray[counter] = copiedArray[i];
+				randomIntegers[counter] = randomIntegers[i];
 			}
 		}
-		return Arrays.copyOf(copiedArray, counter + 1);
+		return Arrays.copyOf(randomIntegers, counter + 1);
 	}
 
 	
@@ -42,8 +41,7 @@ public class DeDupImpl implements DeDup{
 	    for (int i = 0; i < end; i++) {
 	        for (int j = i + 1; j < end; j++) {
 	            if (randomIntegers[i] == randomIntegers[j]) {                  
-	                randomIntegers[j] = randomIntegers[end-1];
-	                end--;
+	                randomIntegers[j] = randomIntegers[--end];
 	                j--;
 	            }
 	        }
